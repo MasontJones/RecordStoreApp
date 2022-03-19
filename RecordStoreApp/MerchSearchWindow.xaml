@@ -32,7 +32,7 @@
         <RadioButton Grid.Row="2" Grid.Column="1" GroupName="SearchBy" Content="ID" FontSize="16" Margin="20,74,250,99"/>
         <RadioButton Grid.Row="2" Grid.Column="1" GroupName="SearchBy" Content="Name" FontSize="16" Margin="128,74,114,99"/>
         <Button Grid.Row="2" Grid.ColumnSpan="3" Content="Search" Margin="0,155,0,0"/>
-        <Image Grid.Row="0" Grid.Column="0" Source="C:\Users\mason\source\repos\RecordStoreApp\RecordStoreApp\Images\Record.jpg" Margin="0,0,174,130" Grid.RowSpan="2"/>
+        <Image Grid.Row="0" Grid.Column="0" Source="/Images/Record.jpg" Margin="0,0,174,130" Grid.RowSpan="2"/>
 
     </Grid>
 </Window>
