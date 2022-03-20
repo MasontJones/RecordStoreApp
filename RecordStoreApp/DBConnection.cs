@@ -6,6 +6,7 @@ namespace Data
 {
     public class DBConnection
     {
+        //Just connects to the db
         private DBConnection()
         {
         }

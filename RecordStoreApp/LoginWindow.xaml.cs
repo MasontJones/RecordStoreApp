@@ -34,6 +34,7 @@ namespace RecordStoreApp
         }
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
+            //connects to database using DBConnectionClass
             var dbCon = DBConnection.Instance();
             dbCon.Server = "209.106.201.103";
             dbCon.DatabaseName = "group3";
@@ -43,19 +44,21 @@ namespace RecordStoreApp
             {
                 string enteredUser = UserName.Text;
                 string EnteredPassword = PasswordEntered.Password;
+                //Hashes the entered password to match to database entry
                 SHA1Managed sha1 = new SHA1Managed();
                 var hash = sha1.ComputeHash(Encoding.UTF8.GetBytes(EnteredPassword));
                 var sb = new StringBuilder(hash.Length * 2);
-                foreach (byte b in hash)
+                foreach (byte b in hash) 
                 {
                     sb.Append(b.ToString("x2"));
                 }
-                String HashedPassword = sb.ToString(); 
-                     string query = $"SELECT firstName, password FROM Employee WHERE firstName = '{enteredUser}' ";
+                String HashedPassword = sb.ToString(); //stores hash in string format
+                //Code to get a query ran in the database
+                string query = $"SELECT firstName, password FROM Employee WHERE firstName = '{enteredUser}' ";
                 var cmd = new MySqlCommand(query, DBConnection.Connection);
                 var reader = cmd.ExecuteReader();
-                Employee loginemployee = new Employee();
-                while (reader.Read())
+                Employee loginemployee = new Employee();//Creates an instance of Employee so data in reader can be accessed 
+                while (reader.Read())//stores columns from query result in Employee Class
                 {
                    
                     string FirstName = reader.GetString(0);
@@ -63,7 +66,7 @@ namespace RecordStoreApp
                     loginemployee.FirstName = FirstName;
                     loginemployee.Password = PasswordHash;
                 }
-
+                //If statement to either give acess upon success or deny upon failure
                 if (enteredUser == loginemployee.FirstName && HashedPassword == loginemployee.Password)
                 {
                     this.Visibility = Visibility.Collapsed;
