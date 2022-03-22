@@ -1,0 +1,29 @@
+﻿<Window x:Class="RecordStoreApp.SearchResults"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RecordStoreApp"
+        mc:Ignorable="d"
+        Title="SearchResults" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="5*"/>
+        </Grid.RowDefinitions>
+        <Label Content="Merchandise Search Results" FontSize="24" HorizontalAlignment="Left" Margin="240,0,0,0"  VerticalAlignment="Center" Height="46" Width="409"/>
+        <Image Source="\Images\Record.jpg" HorizontalAlignment="Left" Height="80" Margin="10,7,0,0" VerticalAlignment="Top" Width="95" Grid.RowSpan="2"/>
+        <Label Content="Merchandise ID" FontSize="16" HorizontalAlignment="Left" Margin="62,39,0,0" Grid.Row="1" VerticalAlignment="Top" Height="41" Width="132"/>
+        <TextBlock x:Name="MerchIDBlock" HorizontalAlignment="Left" Margin="62,80,0,0" Grid.Row="1" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="159" Height="40" />
+        <Label Content="Merchandise Name" FontSize="16" HorizontalAlignment="Left" Margin="252,39,0,0" Grid.Row="1" VerticalAlignment="Top" Height="41" Width="162"/>
+        <TextBlock x:Name="MerchNameBlock" HorizontalAlignment="Left" Margin="252,80,0,0" Grid.Row="1" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="159" Height="40" />
+        <Label Content="Price" FontSize="16" HorizontalAlignment="Left" Margin="444,39,0,0" Grid.Row="1" VerticalAlignment="Top" Height="41" Width="162"/>
+        <TextBlock x:Name="MerchPriceBlock" HorizontalAlignment="Left" Margin="444,80,0,0" Grid.Row="1" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" Height="40" />
+        <Label Content="In Stock?" FontSize="16" HorizontalAlignment="Left" Margin="628,39,0,0" Grid.Row="1" VerticalAlignment="Top" Height="41" Width="162"/>
+        <TextBlock x:Name="InStockBlock" HorizontalAlignment="Left" Margin="631,80,0,0" Grid.Row="1" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="159" Height="40" RenderTransformOrigin="0.575,0.564" />
+        <Button Content="Return to Search" HorizontalAlignment="Left" Margin="180,144,0,0" Grid.Row="2" VerticalAlignment="Top" Height="40" Width="179" Click="Return_Button_Click"/>
+        <Button Content="Add to Cart" HorizontalAlignment="Left" Margin="425,144,0,0" Grid.Row="2" VerticalAlignment="Top" Height="40" Width="179" />
+
+    </Grid>
+</Window>

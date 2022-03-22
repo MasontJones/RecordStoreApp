@@ -13,5 +13,7 @@ namespace RecordStoreApp
     /// </summary>
     public partial class App : Application
     {
+
     }
+
 }

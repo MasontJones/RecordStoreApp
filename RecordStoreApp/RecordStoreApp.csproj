@@ -4,9 +4,11 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UseWPF>true</UseWPF>
+    <Nullable>annotations</Nullable>
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\Cart.jpg" />
     <None Remove="Images\Record.jpg" />
     <None Remove="Record.jpg" />
   </ItemGroup>
