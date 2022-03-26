@@ -1,0 +1,18 @@
+C:\Users\Perrine\source\repos\Inventory Main Menu\Inventory Main Menu\bin\Debug\net5.0-windows\Inventory Main Menu.exe
+C:\Users\Perrine\source\repos\Inventory Main Menu\Inventory Main Menu\bin\Debug\net5.0-windows\Inventory Main Menu.deps.json
+C:\Users\Perrine\source\repos\Inventory Main Menu\Inventory Main Menu\bin\Debug\net5.0-windows\Inventory Main Menu.runtimeconfig.json
+C:\Users\Perrine\source\repos\Inventory Main Menu\Inventory Main Menu\bin\Debug\net5.0-windows\Inventory Main Menu.runtimeconfig.dev.json
+C:\Users\Perrine\source\repos\Inventory Main Menu\Inventory Main Menu\bin\Debug\net5.0-windows\Inventory Main Menu.dll
+C:\Users\Perrine\source\repos\Inventory Main Menu\Inventory Main Menu\bin\Debug\net5.0-windows\ref\Inventory Main Menu.dll
+C:\Users\Perrine\source\repos\Inventory Main Menu\Inventory Main Menu\bin\Debug\net5.0-windows\Inventory Main Menu.pdb
+C:\Users\Perrine\source\repos\Inventory Main Menu\Inventory Main Menu\obj\Debug\net5.0-windows\Inventory Main Menu.csproj.AssemblyReference.cache
+C:\Users\Perrine\source\repos\Inventory Main Menu\Inventory Main Menu\obj\Debug\net5.0-windows\Inventory_Main_Menu.Form1.resources
+C:\Users\Perrine\source\repos\Inventory Main Menu\Inventory Main Menu\obj\Debug\net5.0-windows\Inventory Main Menu.csproj.GenerateResource.cache
+C:\Users\Perrine\source\repos\Inventory Main Menu\Inventory Main Menu\obj\Debug\net5.0-windows\Inventory Main Menu.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Perrine\source\repos\Inventory Main Menu\Inventory Main Menu\obj\Debug\net5.0-windows\Inventory Main Menu.AssemblyInfoInputs.cache
+C:\Users\Perrine\source\repos\Inventory Main Menu\Inventory Main Menu\obj\Debug\net5.0-windows\Inventory Main Menu.AssemblyInfo.cs
+C:\Users\Perrine\source\repos\Inventory Main Menu\Inventory Main Menu\obj\Debug\net5.0-windows\Inventory Main Menu.csproj.CoreCompileInputs.cache
+C:\Users\Perrine\source\repos\Inventory Main Menu\Inventory Main Menu\obj\Debug\net5.0-windows\Inventory Main Menu.dll
+C:\Users\Perrine\source\repos\Inventory Main Menu\Inventory Main Menu\obj\Debug\net5.0-windows\ref\Inventory Main Menu.dll
+C:\Users\Perrine\source\repos\Inventory Main Menu\Inventory Main Menu\obj\Debug\net5.0-windows\Inventory Main Menu.pdb
+C:\Users\Perrine\source\repos\Inventory Main Menu\Inventory Main Menu\obj\Debug\net5.0-windows\Inventory Main Menu.genruntimeconfig.cache
