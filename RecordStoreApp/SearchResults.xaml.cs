@@ -21,6 +21,9 @@ namespace RecordStoreApp
     /// </summary>
     public partial class SearchResults : Window
     {
+        public static List<Merchandise> merchList = new List<Merchandise>();
+        bool inStock = false;
+        Merchandise item;
         public SearchResults()
         {
             InitializeComponent();
@@ -37,6 +40,8 @@ namespace RecordStoreApp
             else
             {
                 InStockBlock.Text = "Is in stock";
+                inStock = true;
+                item = merchFound;
             }
         }
 
@@ -49,5 +54,20 @@ namespace RecordStoreApp
 
         }
 
+        private void Add_Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (inStock is true)
+            {
+                merchList.Add(item);
+                this.Visibility = Visibility.Collapsed;
+                Checkout checkWin = new Checkout();
+                checkWin.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                MessageBox.Show("This item is out of stock");
+            }
+
+        }
     }
 }

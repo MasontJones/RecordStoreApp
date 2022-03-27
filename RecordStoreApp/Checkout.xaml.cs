@@ -20,24 +20,37 @@ namespace RecordStoreApp
     /// </summary>
     public partial class Checkout : Window
     {
-        List<Merchandise> merchList = new List<Merchandise>();
+        //List<Merchandise> merchList = new List<Merchandise>();
         SearchClass SearchParameter;
         double TotalTracker = 0.00;
         double TaxRate = 0.07;
         public Checkout()
         {
             InitializeComponent();
+            PopulateList();
+            Taxes();
             SearchClass search = new SearchClass();
             SearchParameter = search;
         }
-
+        private void Taxes()
+        {
+            double total = 0;
+            foreach(Merchandise a in SearchResults.merchList)
+            {
+                total += a.price;
+            }
+            TotalBox.Text = total.ToString();
+        }
         private void MerchIdBox_KeyDown(object sender, KeyEventArgs e)
         {
+            /*
             if (e.Key == Key.Enter)
             {
                 UpdateListBox();
             }
+            */
         }
+        /*
         private void UpdateListBox()
         {
             SearchParameter.SearchWords = MerchIdBox.Text;
@@ -89,9 +102,10 @@ namespace RecordStoreApp
             MerchIdBox.Clear();
             QuantityBox.Clear();
         }
+        */
         private void PopulateList()
         {
-            foreach (Merchandise a in merchList)
+            foreach (Merchandise a in SearchResults.merchList)
             {
                 ItemListBox.Items.Add(a);
             }
@@ -99,15 +113,42 @@ namespace RecordStoreApp
 
         private void QuantityBox_KeyDown(object sender, KeyEventArgs e)
         {
+            /*
             if (e.Key == Key.Enter)
             {
                 UpdateListBox();
             }
+            */
         }
 
         private void TenderButton_Click(object sender, RoutedEventArgs e)
         {
+            var dbCon = DBConnection.Instance();
+            dbCon.Server = "209.106.201.103";
+            dbCon.DatabaseName = "group3";
+            dbCon.UserName = "dbstudent6";
+            dbCon.Password = "freshsugar87";
+              if (dbCon.IsConnect())
+              {
+                foreach (Merchandise a in SearchResults.merchList) 
+                 {
+                  string query = $"UPDATE {a.merchType} SET numAvaliable = numAvaliable -1 WHERE merchID={a.merchID} and numAvaliable > 0;";
+                  var cmd = new MySqlCommand(query, DBConnection.Connection);
+                  cmd.ExecuteNonQuery();
+                 }
+              }
+            MessageBox.Show("Thank you for the purchase");
+            SearchResults.merchList.Clear();
+            ItemListBox.Items.Clear();
+            TotalBox.Text = "";
+        }
 
+
+        private void MerchSearchButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Visibility = Visibility.Collapsed;
+            MerchSearchWindow window = new MerchSearchWindow();
+            window.Visibility = Visibility.Visible;
         }
     }
 }

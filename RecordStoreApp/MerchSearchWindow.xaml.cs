@@ -32,6 +32,7 @@ namespace RecordStoreApp
 
         private void Search_Button_Click(object sender, RoutedEventArgs e)
         {
+            Results.Items.Clear();
             if (TrackButton.IsChecked == true)
             {
                 SearchParameter.SearchWords = SearchBox.Text;
@@ -59,6 +60,7 @@ namespace RecordStoreApp
                         nextMerch.merchArtist = artist;
                         nextMerch.avaliabale = avaliable;
                         nextMerch.price = price;
+                        nextMerch.merchType = "Track";
                         merchList.Add(nextMerch);
                     }
                     reader.Close();
@@ -93,6 +95,7 @@ namespace RecordStoreApp
                         nextMerch.merchArtist = artist;
                         nextMerch.avaliabale = avaliable;
                         nextMerch.price = price;
+                        nextMerch.merchType = "Album";
                         merchList.Add(nextMerch);
                     }
                     reader.Close();
@@ -126,6 +129,7 @@ namespace RecordStoreApp
                         nextMerch.merchArtist = artist;
                         nextMerch.avaliabale = avaliable;
                         nextMerch.price = price;
+                        nextMerch.merchType = "Track";
                         merchList.Add(nextMerch);
                     }
                     reader.Close();
@@ -155,7 +159,7 @@ namespace RecordStoreApp
             selectedMerch = Results.SelectedItem as Merchandise;
             if ( selectedMerch != null)
             {
-
+                MessageBox.Show(selectedMerch.merchType);
                 this.Visibility = Visibility.Collapsed;
                 SearchResults search = new SearchResults();
                 search.Visibility = Visibility.Visible;
@@ -165,6 +169,13 @@ namespace RecordStoreApp
             {
                 MessageBox.Show("Please select an item");
             }
+        }
+
+        private void Checkout_Button_Click(object sender, RoutedEventArgs e)
+        {
+            this.Visibility = Visibility.Collapsed;
+            Checkout checkoutWindow = new Checkout();
+            checkoutWindow.Visibility = Visibility.Visible;
         }
     }
 }
