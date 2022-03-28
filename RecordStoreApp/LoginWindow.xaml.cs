@@ -70,7 +70,7 @@ namespace RecordStoreApp
                 if (enteredUser == loginemployee.FirstName && HashedPassword == loginemployee.Password)
                 {
                     this.Visibility = Visibility.Collapsed;
-                    MerchSearchWindow window = new MerchSearchWindow();
+                    MainMenu window = new MainMenu();
                     window.Visibility = Visibility.Visible;
                 }
                 else
