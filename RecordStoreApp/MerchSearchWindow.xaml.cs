@@ -43,7 +43,7 @@ namespace RecordStoreApp
                 dbCon.Password = "freshsugar87";
                 if (dbCon.IsConnect())
                 {
-                    string query = $"SELECT Track.merchID, Track.trackName, Track.artist, Track.numAvaliable, Merchandise.price FROM Track JOIN Merchandise ON Track.merchID=Merchandise.merchID WHERE trackName LIKE '{SearchParameter.SearchWords}%';";
+                    string query = $"SELECT Track.merchID, Track.trackName, Track.artist, Merchandise.numAvaliable, Merchandise.price FROM Track JOIN Merchandise ON Track.merchID=Merchandise.merchID WHERE trackName LIKE '{SearchParameter.SearchWords}%';";
                     var cmd = new MySqlCommand(query, DBConnection.Connection);
                     MySqlDataReader reader = cmd.ExecuteReader();
                     merchList.Clear();
@@ -78,7 +78,7 @@ namespace RecordStoreApp
                 dbCon.Password = "freshsugar87";
                 if (dbCon.IsConnect())
                 {
-                    string query = $"SELECT Album.merchID, Album.albumName, Album.artist, Album.numAvaliable, Merchandise.price FROM Album JOIN Merchandise ON Album.merchID=Merchandise.merchID WHERE albumName LIKE '{SearchParameter.SearchWords}%';";
+                    string query = $"SELECT Album.merchID, Album.albumName, Album.artist, Merchandise.numAvaliable, Merchandise.price FROM Album JOIN Merchandise ON Album.merchID=Merchandise.merchID WHERE albumName LIKE '{SearchParameter.SearchWords}%';";
                     var cmd = new MySqlCommand(query, DBConnection.Connection);
                     MySqlDataReader reader = cmd.ExecuteReader();
                     merchList.Clear();
@@ -112,7 +112,7 @@ namespace RecordStoreApp
                 dbCon.Password = "freshsugar87";
                 if (dbCon.IsConnect())
                 {
-                    string query = $"SELECT Track.merchID, Track.trackName, Track.artist, Track.numavaliable, Merchandise.price FROM Merchandise JOIN Track ON Merchandise.merchName = Track.trackName JOIN Genre ON Track.genreID = Genre.genreID WHERE Genre.genreName LIKE '{SearchParameter.SearchWords}%';";
+                    string query = $"SELECT Track.merchID, Track.trackName, Track.artist, Merchandise.numavaliable, Merchandise.price FROM Merchandise JOIN Track ON Merchandise.merchName = Track.trackName JOIN Genre ON Track.genreID = Genre.genreID WHERE Genre.genreName LIKE '{SearchParameter.SearchWords}%';";
                     var cmd = new MySqlCommand(query, DBConnection.Connection);
                     MySqlDataReader reader = cmd.ExecuteReader();
                     merchList.Clear();
@@ -133,7 +133,7 @@ namespace RecordStoreApp
                         merchList.Add(nextMerch);
                     }
                     reader.Close();
-                    string query2 = $"SELECT Album.merchID, Album.albumName, Album.artist, Album.numavaliable, Merchandise.price FROM Merchandise JOIN Album ON Merchandise.merchName = Album.albumName JOIN Genre ON Album.genreID = Genre.genreID WHERE Genre.genreName LIKE '{SearchParameter.SearchWords}%';";
+                    string query2 = $"SELECT Album.merchID, Album.albumName, Album.artist, Merchandise.numavaliable, Merchandise.price FROM Merchandise JOIN Album ON Merchandise.merchName = Album.albumName JOIN Genre ON Album.genreID = Genre.genreID WHERE Genre.genreName LIKE '{SearchParameter.SearchWords}%';";
                     var cmd2 = new MySqlCommand(query2, DBConnection.Connection);
                     MySqlDataReader reader2 = cmd2.ExecuteReader();
                     while (reader2.Read())

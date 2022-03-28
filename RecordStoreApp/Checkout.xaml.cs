@@ -82,7 +82,8 @@ namespace RecordStoreApp
                 {
                     foreach (Merchandise a in SearchResults.merchList)
                     {
-                        string query = $"UPDATE {a.merchType} SET numAvaliable = numAvaliable -1 WHERE merchID={a.merchID} and numAvaliable > 0;";
+                        string query = $"UPDATE Merchandise JOIN {a.merchType} ON Merchandise.merchID = {a.merchType}.merchID SET Merchandise.numAvaliable = Merchandise.numAvaliable -1 WHERE Merchandise.merchID={a.merchID} and Merchandise.numAvaliable > 0;";
+                        //string query = $"UPDATE {a.merchType} SET numAvaliable = numAvaliable -1 WHERE merchID={a.merchID} and numAvaliable > 0;";
                         var cmd = new MySqlCommand(query, DBConnection.Connection);
                         cmd.ExecuteNonQuery();
                     }
