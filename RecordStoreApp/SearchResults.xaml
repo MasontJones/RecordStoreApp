@@ -22,8 +22,9 @@
         <TextBlock x:Name="MerchPriceBlock" HorizontalAlignment="Left" Margin="444,80,0,0" Grid.Row="1" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" Height="40" />
         <Label Content="In Stock?" FontSize="16" HorizontalAlignment="Left" Margin="628,39,0,0" Grid.Row="1" VerticalAlignment="Top" Height="41" Width="162"/>
         <TextBlock x:Name="InStockBlock" HorizontalAlignment="Left" Margin="631,80,0,0" Grid.Row="1" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="159" Height="40" RenderTransformOrigin="0.575,0.564" />
-        <Button Content="Return to Search" HorizontalAlignment="Left" Margin="180,144,0,0" Grid.Row="2" VerticalAlignment="Top" Height="40" Width="179" Click="Return_Button_Click"/>
-        <Button Content="Add to Cart" HorizontalAlignment="Left" Margin="425,144,0,0" Grid.Row="2" VerticalAlignment="Top" Height="40" Width="179" Click="Add_Button_Click" />
+        <Button Content="Return to Search" HorizontalAlignment="Left" Margin="62,144,0,0" Grid.Row="2" VerticalAlignment="Top" Height="40" Width="179" Click="Return_Button_Click"/>
+        <Button Content="Add to Cart" HorizontalAlignment="Center" Margin="0,144,0,0" Grid.Row="2" VerticalAlignment="Top" Height="40" Width="178" Click="Add_Button_Click" />
+        <Button Content="Add and Checkout" HorizontalAlignment="Left" Margin="570,144,0,0" Grid.Row="2" VerticalAlignment="Top" Height="40" Width="178" Click="Checkout_Button_Click" />
 
     </Grid>
 </Window>

@@ -159,7 +159,6 @@ namespace RecordStoreApp
             selectedMerch = Results.SelectedItem as Merchandise;
             if ( selectedMerch != null)
             {
-                MessageBox.Show(selectedMerch.merchType);
                 this.Visibility = Visibility.Collapsed;
                 SearchResults search = new SearchResults();
                 search.Visibility = Visibility.Visible;

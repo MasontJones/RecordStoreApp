@@ -58,6 +58,23 @@ namespace RecordStoreApp
         {
             if (inStock is true)
             {
+                MessageBox.Show("Item added to cart");
+                merchList.Add(item);
+                this.Visibility = Visibility.Collapsed;
+                MerchSearchWindow window = new MerchSearchWindow();
+                window.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                MessageBox.Show("This item is out of stock");
+            }
+
+        }
+
+        private void Checkout_Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (inStock is true)
+            {
                 merchList.Add(item);
                 this.Visibility = Visibility.Collapsed;
                 Checkout checkWin = new Checkout();
@@ -67,7 +84,6 @@ namespace RecordStoreApp
             {
                 MessageBox.Show("This item is out of stock");
             }
-
         }
     }
 }

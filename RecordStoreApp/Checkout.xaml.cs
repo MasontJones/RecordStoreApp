@@ -22,7 +22,6 @@ namespace RecordStoreApp
     {
         //List<Merchandise> merchList = new List<Merchandise>();
         SearchClass SearchParameter;
-        double TotalTracker = 0.00;
         double TaxRate = 0.07;
         public Checkout()
         {
@@ -39,7 +38,10 @@ namespace RecordStoreApp
             {
                 total += a.price;
             }
-            TotalBox.Text = total.ToString();
+            double TaxPercent = total * TaxRate;
+            total = total + TaxPercent;
+            string finalTotal = total.ToString("C2");
+            TotalBox.Text = $"{finalTotal}";
         }
         private void MerchIdBox_KeyDown(object sender, KeyEventArgs e)
         {
