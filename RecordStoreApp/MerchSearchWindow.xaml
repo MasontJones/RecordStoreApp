@@ -18,7 +18,7 @@
             <ColumnDefinition Width="4*"/>
             <ColumnDefinition Width="2*"/>
         </Grid.ColumnDefinitions>
-        <Button Grid.Row="0" Grid.Column="1" Content="Main Menu" Margin="180,22,10,10"/>
+        <Button Grid.Row="0" Grid.Column="1" Content="Main Menu" Margin="180,22,10,10" Click="Main_Menu_Button_Click"/>
         <Button Grid.Row="0" Grid.Column="2" Content="Checkout" Margin="10,22,20,10" Click="Checkout_Button_Click"/>
         <Label Grid.Column="0" Content="Search for" Margin="171,86,355,1" FontSize="16" Grid.ColumnSpan="2"/>
         <Image Grid.Row="0" Grid.Column="0" Source="/Images/Record.jpg" Margin="0,-19,174,111" Grid.RowSpan="2"/>
@@ -27,7 +27,7 @@
         <RadioButton x:Name="TrackButton" Content="Tracks" FontSize="16" GroupName="TableType" Grid.Column="1" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="1" VerticalAlignment="Top" Height="39" Width="113"/>
         <RadioButton x:Name="AlbumButton" Content="Albums" FontSize="16" GroupName="TableType" Grid.Column="1" HorizontalAlignment="Left" Margin="108,0,0,0" Grid.Row="1" VerticalAlignment="Top" Height="32" Width="119"/>
         <RadioButton x:Name="GenreButton" Content="Genre" FontSize="16" GroupName="TableType" Grid.Column="1" HorizontalAlignment="Left" Margin="232,86,0,0" VerticalAlignment="Top" Height="33" Width="119" Grid.RowSpan="2"/>
-        <Button Content="Search" Grid.Column="1" Margin="0,85,0,4" Grid.Row="1" Click="Search_Button_Click" />
+        <Button Content="Search" Grid.Column="1" Margin="0,85,0,0" Grid.Row="1" Click="Search_Button_Click" />
         <Button Content="Select Item" HorizontalAlignment="Left" Margin="0,148,0,0" Grid.Row="2" VerticalAlignment="Top" Height="69" Width="533" Grid.Column="1" Grid.ColumnSpan="2" Click="SelectItem_Button_Click"/>
         <ListBox x:Name="Results" Grid.Column="1" Margin="0,1,0,69" Grid.Row="2" Grid.ColumnSpan="2"/>
 

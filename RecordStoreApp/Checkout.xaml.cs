@@ -20,7 +20,7 @@ namespace RecordStoreApp
     /// </summary>
     public partial class Checkout : Window
     {
-        //List<Merchandise> merchList = new List<Merchandise>();
+
         SearchClass SearchParameter;
         double TaxRate = 0.07;
         public Checkout()
@@ -28,8 +28,6 @@ namespace RecordStoreApp
             InitializeComponent();
             PopulateList();
             Taxes();
-            SearchClass search = new SearchClass();
-            SearchParameter = search;
         }
         private void Taxes()
         {
@@ -52,59 +50,7 @@ namespace RecordStoreApp
             }
             */
         }
-        /*
-        private void UpdateListBox()
-        {
-            SearchParameter.SearchWords = MerchIdBox.Text;
-            var dbCon = DBConnection.Instance();
-            dbCon.Server = "209.106.201.103";
-            dbCon.DatabaseName = "group3";
-            dbCon.UserName = "dbstudent6";
-            dbCon.Password = "freshsugar87";
-            if (dbCon.IsConnect())
-            {
-                string query = $"SELECT merchID, merchName, price FROM Merchandise WHERE merchID ='{SearchParameter.SearchWords}';";
-                var cmd = new MySqlCommand(query, DBConnection.Connection);
-                MySqlDataReader reader = cmd.ExecuteReader();
-                merchList.Clear();
-                while (reader.Read())
-                {
-                    Merchandise nextMerch = new Merchandise();
-                    int merchID = reader.GetInt32(0);
-                    string merchName = reader.GetString(1);
-                    double price = reader.GetDouble(2);
-                    nextMerch.merchID = merchID;
-                    nextMerch.merchName = merchName;
-                    nextMerch.price = price;
-                    if(QuantityBox.Text == "")
-                    {
-                        TotalTracker += price;
-                    }
-                    else
-                    {
-                        TotalTracker += price * int.Parse(QuantityBox.Text);
-                    }
-                    merchList.Add(nextMerch);
-                }
-                reader.Close();
-            }
-            TotalBox.Text = $"{TotalTracker:C}";
-            TaxBox.Text = $"{TotalTracker * TaxRate:C}";
-            if (QuantityBox.Text == "")
-            {
-                PopulateList();
-            }
-            else
-            {
-                for (int i = 0; i < int.Parse(QuantityBox.Text); i++)
-                {
-                    PopulateList();
-                }
-            }
-            MerchIdBox.Clear();
-            QuantityBox.Clear();
-        }
-        */
+       
         private void PopulateList()
         {
             foreach (Merchandise a in SearchResults.merchList)
@@ -125,24 +71,31 @@ namespace RecordStoreApp
 
         private void TenderButton_Click(object sender, RoutedEventArgs e)
         {
-            var dbCon = DBConnection.Instance();
-            dbCon.Server = "209.106.201.103";
-            dbCon.DatabaseName = "group3";
-            dbCon.UserName = "dbstudent6";
-            dbCon.Password = "freshsugar87";
-              if (dbCon.IsConnect())
-              {
-                foreach (Merchandise a in SearchResults.merchList) 
-                 {
-                  string query = $"UPDATE {a.merchType} SET numAvaliable = numAvaliable -1 WHERE merchID={a.merchID} and numAvaliable > 0;";
-                  var cmd = new MySqlCommand(query, DBConnection.Connection);
-                  cmd.ExecuteNonQuery();
-                 }
-              }
-            MessageBox.Show("Thank you for the purchase");
-            SearchResults.merchList.Clear();
-            ItemListBox.Items.Clear();
-            TotalBox.Text = "";
+            if (ItemListBox.Items.Count != 0) 
+            {
+                var dbCon = DBConnection.Instance();
+                dbCon.Server = "209.106.201.103";
+                dbCon.DatabaseName = "group3";
+                dbCon.UserName = "dbstudent6";
+                dbCon.Password = "freshsugar87";
+                if (dbCon.IsConnect())
+                {
+                    foreach (Merchandise a in SearchResults.merchList)
+                    {
+                        string query = $"UPDATE {a.merchType} SET numAvaliable = numAvaliable -1 WHERE merchID={a.merchID} and numAvaliable > 0;";
+                        var cmd = new MySqlCommand(query, DBConnection.Connection);
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+                MessageBox.Show("Thank you for the purchase");
+                SearchResults.merchList.Clear();
+                ItemListBox.Items.Clear();
+                TotalBox.Text = "";
+            }
+            else
+            {
+                MessageBox.Show("There are no items to checkout with please add items to cart");
+            }
         }
 
 

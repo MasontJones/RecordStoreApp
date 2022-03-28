@@ -176,5 +176,12 @@ namespace RecordStoreApp
             Checkout checkoutWindow = new Checkout();
             checkoutWindow.Visibility = Visibility.Visible;
         }
+
+        private void Main_Menu_Button_Click(object sender, RoutedEventArgs e)
+        {
+            this.Visibility = Visibility.Collapsed;
+            MainMenu window = new MainMenu();
+            window.Visibility = Visibility.Visible;
+        }
     }
 }
