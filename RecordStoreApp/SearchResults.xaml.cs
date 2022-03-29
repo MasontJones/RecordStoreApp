@@ -33,13 +33,13 @@ namespace RecordStoreApp
             MerchIDBlock.Text = merchFound.merchID.ToString();
             MerchNameBlock.Text = merchFound.merchName;
             MerchPriceBlock.Text = $"${merchFound.price.ToString()}";
-            if (merchFound.avaliabale == 0)
+            if (merchFound.available == 0)
             {
                 InStockBlock.Text = "Not in stock";
             }
             else
             {
-                InStockBlock.Text = "Is in stock";
+                InStockBlock.Text = $"Yes, {merchFound.available} are available";
                 inStock = true;
                 item = merchFound;
             }

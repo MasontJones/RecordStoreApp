@@ -43,7 +43,7 @@ namespace RecordStoreApp
                 dbCon.Password = "freshsugar87";
                 if (dbCon.IsConnect())
                 {
-                    string query = $"SELECT Track.merchID, Track.trackName, Track.artist, Merchandise.numAvaliable, Merchandise.price FROM Track JOIN Merchandise ON Track.merchID=Merchandise.merchID WHERE trackName LIKE '{SearchParameter.SearchWords}%';";
+                    string query = $"SELECT Track.merchID, Track.trackName, Track.artist, Merchandise.numAvailable, Merchandise.price FROM Track JOIN Merchandise ON Track.merchID=Merchandise.merchID WHERE trackName LIKE '{SearchParameter.SearchWords}%';";
                     var cmd = new MySqlCommand(query, DBConnection.Connection);
                     MySqlDataReader reader = cmd.ExecuteReader();
                     merchList.Clear();
@@ -53,12 +53,12 @@ namespace RecordStoreApp
                         int merchID = reader.GetInt32(0);
                         string trackName = reader.GetString(1);
                         string artist = reader.GetString(2);
-                        int avaliable = reader.GetInt32(3);
+                        int available = reader.GetInt32(3);
                         double price = reader.GetDouble(4);
                         nextMerch.merchID = merchID;
                         nextMerch.merchName = trackName;
                         nextMerch.merchArtist = artist;
-                        nextMerch.avaliabale = avaliable;
+                        nextMerch.available = available;
                         nextMerch.price = price;
                         nextMerch.merchType = "Track";
                         merchList.Add(nextMerch);
@@ -78,7 +78,7 @@ namespace RecordStoreApp
                 dbCon.Password = "freshsugar87";
                 if (dbCon.IsConnect())
                 {
-                    string query = $"SELECT Album.merchID, Album.albumName, Album.artist, Merchandise.numAvaliable, Merchandise.price FROM Album JOIN Merchandise ON Album.merchID=Merchandise.merchID WHERE albumName LIKE '{SearchParameter.SearchWords}%';";
+                    string query = $"SELECT Album.merchID, Album.albumName, Album.artist, Merchandise.numAvailable, Merchandise.price FROM Album JOIN Merchandise ON Album.merchID=Merchandise.merchID WHERE albumName LIKE '{SearchParameter.SearchWords}%';";
                     var cmd = new MySqlCommand(query, DBConnection.Connection);
                     MySqlDataReader reader = cmd.ExecuteReader();
                     merchList.Clear();
@@ -88,12 +88,12 @@ namespace RecordStoreApp
                         int merchID = reader.GetInt32(0);
                         string albumName = reader.GetString(1);
                         string artist = reader.GetString(2);
-                        int avaliable = reader.GetInt32(3);
+                        int available = reader.GetInt32(3);
                         double price = reader.GetDouble(4);
                         nextMerch.merchID = merchID;
                         nextMerch.merchName = albumName;
                         nextMerch.merchArtist = artist;
-                        nextMerch.avaliabale = avaliable;
+                        nextMerch.available = available;
                         nextMerch.price = price;
                         nextMerch.merchType = "Album";
                         merchList.Add(nextMerch);
@@ -112,7 +112,7 @@ namespace RecordStoreApp
                 dbCon.Password = "freshsugar87";
                 if (dbCon.IsConnect())
                 {
-                    string query = $"SELECT Track.merchID, Track.trackName, Track.artist, Merchandise.numavaliable, Merchandise.price FROM Merchandise JOIN Track ON Merchandise.merchName = Track.trackName JOIN Genre ON Track.genreID = Genre.genreID WHERE Genre.genreName LIKE '{SearchParameter.SearchWords}%';";
+                    string query = $"SELECT Track.merchID, Track.trackName, Track.artist, Merchandise.numAvailable, Merchandise.price FROM Merchandise JOIN Track ON Merchandise.merchName = Track.trackName JOIN Genre ON Track.genreID = Genre.genreID WHERE Genre.genreName LIKE '{SearchParameter.SearchWords}%';";
                     var cmd = new MySqlCommand(query, DBConnection.Connection);
                     MySqlDataReader reader = cmd.ExecuteReader();
                     merchList.Clear();
@@ -127,13 +127,13 @@ namespace RecordStoreApp
                         nextMerch.merchID = merchID;
                         nextMerch.merchName = trackName;
                         nextMerch.merchArtist = artist;
-                        nextMerch.avaliabale = avaliable;
+                        nextMerch.available = avaliable;
                         nextMerch.price = price;
                         nextMerch.merchType = "Track";
                         merchList.Add(nextMerch);
                     }
                     reader.Close();
-                    string query2 = $"SELECT Album.merchID, Album.albumName, Album.artist, Merchandise.numavaliable, Merchandise.price FROM Merchandise JOIN Album ON Merchandise.merchName = Album.albumName JOIN Genre ON Album.genreID = Genre.genreID WHERE Genre.genreName LIKE '{SearchParameter.SearchWords}%';";
+                    string query2 = $"SELECT Album.merchID, Album.albumName, Album.artist, Merchandise.numAvailable, Merchandise.price FROM Merchandise JOIN Album ON Merchandise.merchName = Album.albumName JOIN Genre ON Album.genreID = Genre.genreID WHERE Genre.genreName LIKE '{SearchParameter.SearchWords}%';";
                     var cmd2 = new MySqlCommand(query2, DBConnection.Connection);
                     MySqlDataReader reader2 = cmd2.ExecuteReader();
                     while (reader2.Read())
@@ -142,12 +142,12 @@ namespace RecordStoreApp
                         int merchID = reader2.GetInt32(0);
                         string albumName = reader2.GetString(1);
                         string artist = reader2.GetString(2);
-                        int avaliable = reader2.GetInt32(3);
+                        int available = reader2.GetInt32(3);
                         double price = reader2.GetDouble(4);
                         nextMerch.merchID = merchID;
                         nextMerch.merchName = albumName;
                         nextMerch.merchArtist = artist;
-                        nextMerch.avaliabale = avaliable;
+                        nextMerch.available = available;
                         nextMerch.price = price;
                         nextMerch.merchType = "Album";
                         merchList.Add(nextMerch);

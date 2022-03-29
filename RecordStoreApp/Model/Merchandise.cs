@@ -10,7 +10,7 @@ namespace RecordStoreApp.Model
         public string merchName { get; set; }
         public string merchArtist { get; set; }
         public double price { get; set; }
-        public int avaliabale { get; set; }
+        public int available { get; set; }
         public string merchType { get; set; }
         public override string ToString()
         {

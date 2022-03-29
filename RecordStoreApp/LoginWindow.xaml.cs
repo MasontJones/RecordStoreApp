@@ -76,7 +76,8 @@ namespace RecordStoreApp
                 else
                 {
                     MessageBox.Show("Password or username was incorrect");
-
+                    PasswordEntered.Clear();
+                    UserName.Clear();
                 }
                 reader.Close();             
             }

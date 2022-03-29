@@ -30,6 +30,7 @@
         <Button Content="Search" Grid.Column="1" Margin="0,85,0,0" Grid.Row="1" Click="Search_Button_Click" />
         <Button Content="Select Item" HorizontalAlignment="Left" Margin="0,148,0,0" Grid.Row="2" VerticalAlignment="Top" Height="69" Width="533" Grid.Column="1" Grid.ColumnSpan="2" Click="SelectItem_Button_Click"/>
         <ListBox x:Name="Results" Grid.Column="1" Margin="0,1,0,69" Grid.Row="2" Grid.ColumnSpan="2"/>
+        <Label Content="Search By" FontSize="16" HorizontalAlignment="Left" Margin="145,78,0,0" VerticalAlignment="Top" Height="41" Width="112" RenderTransformOrigin="0.465,-0.473" Grid.RowSpan="2"/>
 
     </Grid>
 </Window>
