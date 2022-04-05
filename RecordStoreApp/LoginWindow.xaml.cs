@@ -54,8 +54,10 @@ namespace RecordStoreApp
                 }
                 String HashedPassword = sb.ToString(); //stores hash in string format
                 //Code to get a query ran in the database
-                string query = $"SELECT firstName, password FROM Employee WHERE firstName = '{enteredUser}' ";
+                string query = $"SELECT firstName, password FROM Employee WHERE firstName=@username;";
                 var cmd = new MySqlCommand(query, DBConnection.Connection);
+                cmd.Parameters.AddWithValue("@username", enteredUser);
+                cmd.Prepare();
                 var reader = cmd.ExecuteReader();
                 Employee loginemployee = new Employee();//Creates an instance of Employee so data in reader can be accessed 
                 while (reader.Read())//stores columns from query result in Employee Class
