@@ -44,17 +44,7 @@ namespace RecordStoreApp
             {
                 string enteredUser = UserName.Text;
                 string EnteredPassword = PasswordEntered.Password;
-                //Hashes the entered password to match to database entry
-                SHA1Managed sha1 = new SHA1Managed();
-                var hash = sha1.ComputeHash(Encoding.UTF8.GetBytes(EnteredPassword));
-                var sb = new StringBuilder(hash.Length * 2);
-                foreach (byte b in hash) 
-                {
-                    sb.Append(b.ToString("x2"));
-                }
-                String HashedPassword = sb.ToString(); //stores hash in string format
-                //Code to get a query ran in the database
-                string query = $"SELECT firstName, password FROM Employee WHERE firstName=@username;";
+                string query = $"SELECT password FROM Employee WHERE firstName=@username;";
                 var cmd = new MySqlCommand(query, DBConnection.Connection);
                 cmd.Parameters.AddWithValue("@username", enteredUser);
                 cmd.Prepare();
@@ -63,13 +53,13 @@ namespace RecordStoreApp
                 while (reader.Read())//stores columns from query result in Employee Class
                 {
                    
-                    string FirstName = reader.GetString(0);
-                    string PasswordHash = reader.GetString(1);
-                    loginemployee.FirstName = FirstName;
-                    loginemployee.Password = PasswordHash;
+                    string hashedPassword = reader.GetString(0);
+                    loginemployee.Password = hashedPassword;
                 }
+                reader.Close();
                 //If statement to either give acess upon success or deny upon failure
-                if (enteredUser == loginemployee.FirstName && HashedPassword == loginemployee.Password)
+                bool isValid = BCrypt.Net.BCrypt.Verify(EnteredPassword, loginemployee.Password);
+                if (isValid)
                 {
                     this.Visibility = Visibility.Collapsed;
                     MainMenu window = new MainMenu();
@@ -81,7 +71,7 @@ namespace RecordStoreApp
                     PasswordEntered.Clear();
                     UserName.Clear();
                 }
-                reader.Close();             
+                
             }
 
         }
