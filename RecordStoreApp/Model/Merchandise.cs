@@ -14,7 +14,7 @@ namespace RecordStoreApp.Model
         public string merchType { get; set; }
         public override string ToString()
         {
-            return $"ID is {merchID}, {merchName}, costs ${price}";
+            return $"ID is {merchID}, {merchName}, costs ${price}, {available} are avaliable";
         }
     }
 }

@@ -7,14 +7,15 @@
         mc:Ignorable="d"
         Title="MainMenu" Height="450" Width="800">
     <Grid>
-        <Label Content="Main Menu" FontSize="24" HorizontalAlignment="Left" Margin="344,10,0,0" VerticalAlignment="Top" Height="60" Width="164"/>
-        <Label Content="Please select a menu option:" FontSize="16" HorizontalAlignment="Left" Margin="314,48,0,0" VerticalAlignment="Top" Height="35" Width="224"/>
-        <Button Content="Employee Managment" Margin="281,88,229,296" Visibility="Hidden"/>
-        <Button Content="Merchandise Search" Margin="281,297,229,87" Click="Merchandise_Search_Button_Click" />
-        <Button Content="Merchandise Managment" Margin="281,227,229,157" Visibility="Hidden"/>
-        <Button Content="Transaction History" Margin="281,155,229,229" Visibility="Hidden"/>
-        <Button Content="Checkout" Margin="281,363,229,21" Click="Checkout_Button_Click"/>
-        <Image Source="\Images\Record.jpg" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100"/>
+        <Label Content="Main Menu" FontSize="24" HorizontalAlignment="Center" Margin="0,9,0,0" VerticalAlignment="Top" Height="39" Width="152"/>
+        <Grid HorizontalAlignment="Center" Height="336" VerticalAlignment="Top" Width="439" Margin="0,88,0,0">
+            <Button Content="Employee Managment"  Visibility="Visible" Margin="64,10,64,286"/>
+            <Button Content="Merchandise Search"  Click="Merchandise_Search_Button_Click" Margin="64,72,64,230" />
+            <Button Content="Merchandise Managment"  Visibility="Visible" Margin="64,130,64,168"/>
+            <Button Content="Transaction History"  Visibility="Visible" Margin="64,191,64,104"/>
+            <Button Content="Checkout"  Click="Checkout_Button_Click" Margin="64,253,64,38"/>
 
+        </Grid>
+        <Image Source="\Images\Record.jpg" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100"/>
     </Grid>
 </Window>
