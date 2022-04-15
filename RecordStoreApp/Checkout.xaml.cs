@@ -36,9 +36,11 @@ namespace RecordStoreApp
                 total += a.price;
             }
             double TaxPercent = total * TaxRate;
+            TaxBox.Text = $"{TaxPercent.ToString("C2")}";
+            TotalBox.Text = $"{total.ToString("C2")}";
             total = total + TaxPercent;
             string finalTotal = total.ToString("C2");
-            TotalBox.Text = $"{finalTotal}";
+            GrandTotalBox.Text = $"{finalTotal}";
         }
         private void MerchIdBox_KeyDown(object sender, KeyEventArgs e)
         {
