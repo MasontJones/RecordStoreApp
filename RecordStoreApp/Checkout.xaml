@@ -29,9 +29,9 @@
         <Label Grid.Column="0" Grid.Row="1" Content="Customer Name" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="16" Visibility="Visible" Margin="5,0,0,0"/>
         <Label Grid.Column="0" Grid.Row="2" Content="Grand Total" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="16" Width="106" Height="30"/>
         <Label Grid.Column="0" Grid.Row="2" Content="Total" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="16" Width="81" Height="28" Margin="7,0,0,100"/>
-        <TextBox Name="MerchIdBox" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="141,7,0,0" KeyDown="MerchIdBox_KeyDown" Visibility="Visible" Height="25" Width="116"/>
-        <TextBox Name="QuantityBox" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center"  KeyDown="QuantityBox_KeyDown" Visibility="Visible"  Margin="141,0,0,0" Height="25" Width="116" />
-        <TextBox Name="EmailBox" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Bottom"  Margin="141,0,0,10" Visibility="Visible" Width="116" Height="25"/>
+        <TextBox Name="EmailBox" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="141,7,0,0"  Visibility="Visible" Height="25" Width="116"/>
+        <TextBox Name="PhoneBox" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center"  KeyDown="QuantityBox_KeyDown" Visibility="Visible"  Margin="141,0,0,0" Height="25" Width="116" />
+        <TextBox Name="NameBox" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Bottom"  Margin="141,0,0,10" Visibility="Visible" Width="116" Height="25"/>
         <TextBox Name="TotalBox" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" MinWidth="80" MinHeight="20" Margin="142,10,0,0" Visibility="Visible" IsReadOnly="True" Height="25" Width="116" Grid.ColumnSpan="2"/>
         <TextBox Name="TaxBox" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center" MinWidth="80" MinHeight="20" Visibility="Visible" IsReadOnly="True" Margin="142,0,0,0" Width="116" Height="25" Grid.ColumnSpan="2"/>
         <TextBox Name="GrandTotalBox"  Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Bottom" MinWidth="80" MinHeight="20" Margin="142,0,0,15" Width="116" Height="25" IsReadOnly="True" RenderTransformOrigin="0.374,0.497" Grid.ColumnSpan="2"/>

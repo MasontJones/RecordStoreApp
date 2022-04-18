@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -74,24 +75,49 @@ namespace RecordStoreApp
         {
             if (ItemListBox.Items.Count != 0) 
             {
-                var dbCon = DBConnection.Instance();
-                dbCon.Server = "209.106.201.103";
-                dbCon.DatabaseName = "group3";
-                dbCon.UserName = "dbstudent6";
-                dbCon.Password = "freshsugar87";
-                if (dbCon.IsConnect())
+                bool nameEntered = Check(NameBox.Text);
+                if (nameEntered is true)
                 {
-                    foreach (Merchandise a in SearchResults.merchList)
+                    string newEmail = EmailCheck(EmailBox.Text);
+                    string newPhone = PhoneCheck(PhoneBox.Text);
+                    string firstName = FirstName(NameBox.Text);
+                    string lastName = LastName(NameBox.Text);
+                    var dbCon = DBConnection.Instance();
+                    dbCon.Server = "209.106.201.103";
+                    dbCon.DatabaseName = "group3";
+                    dbCon.UserName = "dbstudent6";
+                    dbCon.Password = "freshsugar87";
+                    if (dbCon.IsConnect())
                     {
-                        string query = $"UPDATE Merchandise JOIN {a.merchType} ON Merchandise.merchID = {a.merchType}.merchID SET Merchandise.numAvailable = Merchandise.numAvailable -1 WHERE Merchandise.merchID={a.merchID} and Merchandise.numAvailable > 0;";
-                        var cmd = new MySqlCommand(query, DBConnection.Connection);
-                        cmd.ExecuteNonQuery();
+                        foreach (Merchandise a in SearchResults.merchList)
+                        {
+                            string query = $"UPDATE Merchandise JOIN {a.merchType} ON Merchandise.merchID = {a.merchType}.merchID SET Merchandise.numAvailable = Merchandise.numAvailable -1 WHERE Merchandise.merchID={a.merchID} and Merchandise.numAvailable > 0;";
+                            var cmd = new MySqlCommand(query, DBConnection.Connection);
+                            cmd.ExecuteNonQuery();
+                        }
+                        //string query2 = $"INSERT INTO Customer VALUES(null, '{firstName}', '{lastName}', {newPhone}, {newEmail});";
+                        string query2 = $"INSERT INTO Customer VALUES(null, @firstName, @lastName, @newPhone, @newEmail);";
+                        var cmd2 = new MySqlCommand(query2, DBConnection.Connection);
+                        cmd2.Parameters.AddWithValue("@firstName", firstName);
+                        cmd2.Parameters.AddWithValue("@lastName", lastName);
+                        cmd2.Parameters.AddWithValue("@newPhone", newPhone);
+                        cmd2.Parameters.AddWithValue("@newEmail", newEmail);
+                        cmd2.ExecuteNonQuery();
                     }
+                    MessageBox.Show($"Thank you for your purchase {firstName} {lastName}");
+                    SearchResults.merchList.Clear();
+                    ItemListBox.Items.Clear();
+                    TotalBox.Text = "";
+                    TaxBox.Text = "";
+                    GrandTotalBox.Text = "";
+                    EmailBox.Text = "";
+                    PhoneBox.Text = "";
+                    EmailBox.Text = "";
                 }
-                MessageBox.Show("Thank you for the purchase");
-                SearchResults.merchList.Clear();
-                ItemListBox.Items.Clear();
-                TotalBox.Text = "";
+                else
+                {
+                    MessageBox.Show("Please enter customers first and last name");
+                }
             }
             else
             {
@@ -105,6 +131,74 @@ namespace RecordStoreApp
             this.Visibility = Visibility.Collapsed;
             MerchSearchWindow window = new MerchSearchWindow();
             window.Visibility = Visibility.Visible;
+        }
+        static bool Check(String EnteredName)
+        {
+            String[] Names = EnteredName.Split(' ');
+            EnteredName = Regex.Replace(EnteredName, @"\s+", " ");
+            int nums =0;
+            foreach(string a in Names)
+            {
+                nums++;
+            }
+            if (String.IsNullOrWhiteSpace(EnteredName))
+            {
+                return false;
+            }
+            else if(nums > 2)
+            {
+                return false;
+            }
+            else if(nums <= 1)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+        static string FirstName(string fullName)
+        {
+            fullName = Regex.Replace(fullName, @"\s+", " ");
+            string[] Names = fullName.Split(' ');
+            string firstName = Names[0];
+            return firstName;
+
+        }
+        static string LastName(string fullName)
+        {
+            fullName = Regex.Replace(fullName, @"\s+", " ");
+            string[] Names = fullName.Split(' ');
+            string lastName = Names[1];
+            return lastName;
+
+        }
+        static string EmailCheck(string email)
+        {
+            if (string.IsNullOrWhiteSpace(email))
+            {
+                string isNull = "Null";
+                return isNull;
+            }
+            else
+            {
+                string isNotNull = $"'{email}'";
+                return isNotNull;
+            }
+        }
+        static string PhoneCheck(string phone)
+        {
+            if (string.IsNullOrWhiteSpace(phone))
+            {
+                string isNull = "Null";
+                return isNull;
+            }
+            else
+            {
+                string isNotNull = $"'{phone}'";
+                return isNotNull;
+            }
         }
     }
 }
