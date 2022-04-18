@@ -9,11 +9,11 @@
     <Grid>
         <Label Content="Main Menu" FontSize="24" HorizontalAlignment="Left" Margin="344,10,0,0" VerticalAlignment="Top" Height="60" Width="164"/>
         <Label Content="Please select a menu option:" FontSize="16" HorizontalAlignment="Left" Margin="314,48,0,0" VerticalAlignment="Top" Height="35" Width="224"/>
-        <Button Content="Employee Managment" Margin="281,88,229,296" Visibility="Hidden"/>
-        <Button Content="Merchandise Search" Margin="281,297,229,87" Click="Merchandise_Search_Button_Click" />
-        <Button Content="Merchandise Managment" Margin="281,227,229,157" Visibility="Hidden"/>
-        <Button Content="Transaction History" Margin="281,155,229,229" Visibility="Hidden"/>
-        <Button Content="Checkout" Margin="281,363,229,21" Click="Checkout_Button_Click"/>
+        <Button x:Name="empButton" Content="Employee Managment" Margin="281,88,229,296" Visibility="Visible"/>
+        <Button x:Name="merchSearchButton" Content="Merchandise Search" Margin="281,297,229,87" Click="Merchandise_Search_Button_Click" />
+        <Button x:Name="merchManageButton" Content="Merchandise Managment" Margin="281,227,229,157" Visibility="Visible" Click="merchManageButton_Click"/>
+        <Button x:Name="transHistButton" Content="Transaction History" Margin="281,155,229,229" Visibility="Visible"/>
+        <Button x:Name="checkoutButton" Content="Checkout" Margin="281,363,229,21" Click="Checkout_Button_Click"/>
         <Image Source="\Images\Record.jpg" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100"/>
 
     </Grid>

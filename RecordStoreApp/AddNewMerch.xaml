@@ -18,15 +18,12 @@
             <ColumnDefinition Width="2*"/>
         </Grid.ColumnDefinitions>
         <Image Grid.Row="0" Grid.Column="0" Source="/Images/Record.jpg" Margin="0,0,174,0"/>
-        <Button Name="MerchManageButton" Grid.Row="0" Grid.Column="0" Content="Merchandise Managment" Margin="95,22,10,10" Visibility="Visible"/>
+        <Button Name="CheckoutButton" Grid.Row="0" Grid.Column="0" Content="Merchandise Managment" Margin="95,22,10,10" Visibility="Visible" Click="CheckoutButton_Click"/>
         <Button Name="TransHistButton" Grid.Row="0" Grid.Column="1" Content="Transaction History" Margin="10,22,200,10" Visibility="Visible"/>
         <Button Name="EmpManageButton" Grid.Row="0" Grid.Column="1" Content="Employee Managment" Margin="180,22,10,10" Visibility="Visible"/>
-        <Button Name="MerchSearchButton" Grid.Row="0" Grid.Column="2" Content="Merchandise Search" Margin="10,22,20,10"/>
-        <ComboBox Grid.Row="1" Grid.Column="1" Height="30" Width="150" Margin="0,175,0,0" HorizontalAlignment="left">
-            <ComboBoxItem Content="Genre 1"></ComboBoxItem>
-            <ComboBoxItem Content="Genre 2"></ComboBoxItem>
-        </ComboBox>
-        <ComboBox Grid.Row="2" Grid.Column="1" Height="30" Width="150" VerticalAlignment="Top" HorizontalAlignment="left">
+        <Button Name="MerchSearchButton" Grid.Row="0" Grid.Column="2" Content="Merchandise Search" Margin="10,22,20,10" Click="MerchSearchButton_Click"/>
+        <ComboBox Name="genreComboBox" Grid.Row="1" Grid.Column="1" Height="30" Width="150" Margin="0,175,0,0" HorizontalAlignment="left" Loaded="genreComboBox_Loaded"></ComboBox>
+        <ComboBox Name="trackOrAlbumComboBox" Grid.Row="2" Grid.Column="1" Height="30" Width="150" VerticalAlignment="Top" HorizontalAlignment="left">
             <ComboBoxItem Content="Track"></ComboBoxItem>
             <ComboBoxItem Content="Album"></ComboBoxItem>
         </ComboBox>
@@ -36,9 +33,10 @@
         <Label Content="Price" Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Right" FontSize="16" Margin="0,100,0,0"></Label>
         <Label Content="Name" Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Right" FontSize="16" Margin="0,50,0,0"></Label>
         <Label Content="Artist" Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,0,0,0" FontSize="16"></Label>
-        <TextBox Grid.Row="1" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,8,0,0" MinHeight="20" MinWidth="175"></TextBox>
-        <TextBox Grid.Row="1" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,58,0,0" MinHeight="20" MinWidth="175"></TextBox>
-        <TextBox Grid.Row="1" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,108,0,0" MinHeight="20" MinWidth="100"></TextBox>
-        <TextBox Grid.Row="1" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,158,0,0" MinHeight="20" MinWidth="100"></TextBox>
+        <TextBox x:Name="artistBox" Grid.Row="1" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,8,0,0" MinHeight="20" MinWidth="175"></TextBox>
+        <TextBox x:Name="nameBox" Grid.Row="1" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,58,0,0" MinHeight="20" MinWidth="175"></TextBox>
+        <TextBox x:Name="priceBox" Grid.Row="1" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,108,0,0" MinHeight="20" MinWidth="100"></TextBox>
+        <TextBox x:Name="numInStockBox" Grid.Row="1" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,158,0,0" MinHeight="20" MinWidth="100"></TextBox>
+        <Button x:Name="addMerchandiseButton" Content="Add Merchandise" Grid.Row="2" Grid.Column="2" Click="addMerchandiseButton_Click"></Button>
     </Grid>
 </Window>

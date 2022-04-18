@@ -35,5 +35,12 @@ namespace RecordStoreApp
             Checkout window = new Checkout();
             window.Visibility = Visibility.Visible;
         }
+
+        private void merchManageButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Visibility = Visibility.Collapsed;
+            MerchManagement window = new MerchManagement();
+            window.Visibility = Visibility.Visible;
+        }
     }
 }
