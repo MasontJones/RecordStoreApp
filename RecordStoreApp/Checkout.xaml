@@ -18,9 +18,9 @@
             <ColumnDefinition Width="4*"/>
             <ColumnDefinition Width="2*"/>
         </Grid.ColumnDefinitions>
-        <Button Name="MerchManageButton" Grid.Row="0" Grid.Column="0" Content="Merchandise Managment" Margin="95,22,10,10" Visibility="Hidden"/>
-        <Button Name="TransHistButton" Grid.Row="0" Grid.Column="1" Content="Transaction History" Margin="10,22,200,10" Visibility="Hidden"/>
-        <Button Name="EmpManageButton" Grid.Row="0" Grid.Column="1" Content="Employee Managment" Margin="180,22,10,10" Visibility="Hidden"/>
+        <Button Name="MerchManageButton" Grid.Row="0" Grid.Column="0" Content="Merchandise Managment" Margin="95,22,10,10" Visibility="Visible"/>
+        <Button Name="TransHistButton" Grid.Row="0" Grid.Column="1" Content="Transaction History" Margin="10,22,200,10" Visibility="Visible"/>
+        <Button Name="EmpManageButton" Grid.Row="0" Grid.Column="1" Content="Employee Managment" Margin="180,22,10,10" Visibility="Visible"/>
         <Button Name="MerchSearchButton" Grid.Row="0" Grid.Column="2" Content="Merchandise Search" Margin="10,22,20,10" Click="MerchSearchButton_Click"/>
         <Button Name="TenderButton" Grid.Column="0" Grid.Row="3" Margin="10,10,10,10" Content="Tender" Click="TenderButton_Click"></Button>
         <ListBox Name="ItemListBox" Grid.Column="1" Grid.Row="1" Grid.RowSpan="3" Grid.ColumnSpan="2"></ListBox>
