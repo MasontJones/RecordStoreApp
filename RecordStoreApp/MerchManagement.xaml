@@ -19,18 +19,17 @@
             <ColumnDefinition Width="2*"/>
         </Grid.ColumnDefinitions>
         <Image Grid.Row="0" Grid.Column="0" Source="/Images/Record.jpg" Margin="0,0,174,0"/>
-        <Button Name="MerchManageButton" Grid.Row="0" Grid.Column="0" Content="Merchandise Managment" Margin="95,22,10,10" Visibility="Visible"/>
+        <Button Name="checkoutButton" Grid.Row="0" Grid.Column="0" Content="Checkout" Margin="95,22,10,10" Visibility="Visible" Click="checkoutButton_Click"/>
         <Button Name="TransHistButton" Grid.Row="0" Grid.Column="1" Content="Transaction History" Margin="10,22,200,10" Visibility="Visible"/>
         <Button Name="EmpManageButton" Grid.Row="0" Grid.Column="1" Content="Employee Managment" Margin="180,22,10,10" Visibility="Visible"/>
-        <Button Name="MerchSearchButton" Grid.Row="0" Grid.Column="2" Content="Merchandise Search" Margin="10,22,20,10"/>
+        <Button Name="MerchSearchButton" Grid.Row="0" Grid.Column="2" Content="Merchandise Search" Margin="10,22,20,10" Click="MerchSearchButton_Click"/>
         <Label Content="Change Number in Stock to" Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Right" FontSize="16" Margin="0,100,0,0"></Label>
         <Label Content="Change Price to" Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Right" FontSize="16" Margin="0,50,0,0"></Label>
-        <Label Content="Merchandise Id or Name" Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,0,0,0" FontSize="16"></Label>
-        <TextBox Grid.Row="1" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,8,0,0" MinHeight="20" MinWidth="250"></TextBox>
-        <TextBox Grid.Row="1" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,58,0,0" MinHeight="20" MinWidth="100"></TextBox>
-        <TextBox Grid.Row="1" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,108,0,0" MinHeight="20" MinWidth="100"></TextBox>
-        <Button Grid.Row="1" Grid.Column="1" Content="Add New Merchandise" VerticalAlignment="Bottom" HorizontalAlignment="Center" MinHeight="50"></Button>
-
-
+        <Label Content="Merchandise Id" Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,0,0,0" FontSize="16"></Label>
+        <TextBox x:Name="merchIdBox" Grid.Row="1" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,8,0,0" MinHeight="20" MinWidth="250"></TextBox>
+        <TextBox x:Name="priceBox" Grid.Row="1" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,58,0,0" MinHeight="20" MinWidth="100"></TextBox>
+        <TextBox x:Name="inStockBox" Grid.Row="1" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,108,0,0" MinHeight="20" MinWidth="100"></TextBox>
+        <Button x:Name="updateButton" Grid.Row="1" Grid.Column="1" Content="Update Merchandise" VerticalAlignment="Bottom" HorizontalAlignment="Left" MinHeight="50" Click="updateButton_Click"></Button>
+        <Button x:Name="newMerchButton" Grid.Row="1" Grid.Column="1" Content="Add New Merchandise" VerticalAlignment="Bottom" HorizontalAlignment="Right" MinHeight="50" Click="newMerchButton_Click"></Button>
     </Grid>
 </Window>
