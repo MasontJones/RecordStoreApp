@@ -36,10 +36,11 @@ namespace RecordStoreApp
             window.Visibility = Visibility.Visible;
         }
 
-        private void merchManageButton_Click(object sender, RoutedEventArgs e)
+
+        private void MerchManageButton_CLick(object sender, RoutedEventArgs e)
         {
             this.Visibility = Visibility.Collapsed;
-            MerchManagement window = new MerchManagement();
+            ManagerLogin window = new ManagerLogin();
             window.Visibility = Visibility.Visible;
         }
     }

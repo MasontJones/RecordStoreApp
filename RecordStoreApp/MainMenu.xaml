@@ -11,7 +11,7 @@
         <Grid HorizontalAlignment="Center" Height="336" VerticalAlignment="Top" Width="439" Margin="0,88,0,0">
             <Button Content="Employee Managment"  Visibility="Visible" Margin="64,10,64,286"/>
             <Button Content="Merchandise Search"  Click="Merchandise_Search_Button_Click" Margin="64,72,64,230" />
-            <Button Content="Merchandise Managment"  Visibility="Visible" Margin="64,130,64,168"/>
+            <Button Content="Merchandise Managment"  Visibility="Visible" Margin="64,130,64,168" Click="MerchManageButton_CLick"/>
             <Button Content="Transaction History"  Visibility="Visible" Margin="64,191,64,104"/>
             <Button Content="Checkout"  Click="Checkout_Button_Click" Margin="64,253,64,38"/>
 
