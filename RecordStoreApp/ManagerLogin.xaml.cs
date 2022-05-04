@@ -66,5 +66,12 @@ namespace RecordStoreApp
 
             }
         }
+
+        private void MainMenuButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Visibility = Visibility.Collapsed;
+            MainMenu window = new MainMenu();
+            window.Visibility = Visibility.Visible;
+        }
     }
 }

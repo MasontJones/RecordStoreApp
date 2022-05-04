@@ -81,6 +81,14 @@ namespace RecordStoreApp
                         command2.Prepare();
                         command2.ExecuteReader().Close();
                     }
+                    MessageBox.Show("Item succesfully added");
+                    artistBox.Text = "";
+                    nameBox.Text = "";
+                    priceBox.Text = "";
+                    numInStockBox.Text = "";
+                    genreComboBox.Text = "";
+                    trackOrAlbumComboBox.Text = "";
+
                 }
             }
         }

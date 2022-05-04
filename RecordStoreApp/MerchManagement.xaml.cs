@@ -34,37 +34,93 @@ namespace RecordStoreApp
             dbCon.Password = "freshsugar87";
             if (dbCon.IsConnect())
             {
-                if (priceBox.Text == "") 
+                if (merchIdBox.Text == "")
                 {
-                    string query = $"UPDATE Merchandise SET numAvailable =@inStock WHERE merchId = {merchIdBox.Text}";
-                    var command = new MySqlCommand(query, DBConnection.Connection);
-                    command.Parameters.AddWithValue("@inStock", int.Parse(inStockBox.Text));
-                    command.Prepare();
-                    command.ExecuteReader().Close();
+                    MessageBox.Show("Please enter merchandise ID you wish to update");
+                }
+                else if (priceBox.Text == "" && inStockBox.Text == "")
+                {
+                    MessageBox.Show("Error missing price or stock value");
+                }
+                else if (priceBox.Text == "") 
+                {
+                    try
+                    {
+                        string query = $"UPDATE Merchandise SET numAvailable =@inStock WHERE merchId = {merchIdBox.Text}";
+                        var command = new MySqlCommand(query, DBConnection.Connection);
+                        command.Parameters.AddWithValue("@inStock", int.Parse(inStockBox.Text));
+                        command.Prepare();
+                        int rowAffected = command.ExecuteNonQuery();
+                        if (rowAffected == 0)
+                        {
+                            MessageBox.Show("Merch failed to update");
+                        }
+                        else
+                        {
+                            MessageBox.Show($"Item succesfully updated to MerchID: {merchIdBox.Text} Stock: {inStockBox.Text}");
+                        }
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Error merch failed to update");
+                    }
                 }
                 else if (inStockBox.Text == "")
                 {
-                    string query = $"UPDATE Merchandise SET price =@price WHERE merchId =@merchID";
-                    var command = new MySqlCommand(query, DBConnection.Connection);
-                    command.Parameters.AddWithValue("@price", double.Parse(priceBox.Text));
-                    command.Parameters.AddWithValue("@merchID", merchIdBox.Text);
-                    command.Prepare();
-                    command.ExecuteReader().Close();
+                    try
+                    {
+                        string query = $"UPDATE Merchandise SET price =@price WHERE merchId =@merchID";
+                        var command = new MySqlCommand(query, DBConnection.Connection);
+                        command.Parameters.AddWithValue("@price", double.Parse(priceBox.Text));
+                        command.Parameters.AddWithValue("@merchID", merchIdBox.Text);
+                        command.Prepare();
+                        int rowAffected = command.ExecuteNonQuery();
+                        if (rowAffected == 0)
+                        {
+                            MessageBox.Show("Merch failed to update");
+                        }
+                        else
+                        {
+                            MessageBox.Show($"Item succesfully updated to MerchID: {merchIdBox.Text} Price: {priceBox.Text}");
+                        }
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Error merch failed to update");
+                    }
                 }
                 else
                 {
-                    string query = $"UPDATE Merchandise SET price =@price, numAvailable =@numAvail" +
+                    try
+                    {
+                        string query = $"UPDATE Merchandise SET price =@price, numAvailable =@numAvail" +
                         $" WHERE merchId =@merchID";
-                    var command = new MySqlCommand(query, DBConnection.Connection);
-                    command.Parameters.AddWithValue("@price", double.Parse(priceBox.Text));
-                    command.Parameters.AddWithValue("@numAvail", int.Parse(inStockBox.Text));
-                    command.Parameters.AddWithValue("@merchID", int.Parse(merchIdBox.Text));
-                    command.Prepare();
-                    command.ExecuteReader().Close();
+                        var command = new MySqlCommand(query, DBConnection.Connection);
+                        command.Parameters.AddWithValue("@price", double.Parse(priceBox.Text));
+                        command.Parameters.AddWithValue("@numAvail", int.Parse(inStockBox.Text));
+                        command.Parameters.AddWithValue("@merchID", int.Parse(merchIdBox.Text));
+                        command.Prepare();
+                        int rowAffected = command.ExecuteNonQuery();
+                        if (rowAffected == 0)
+                        {
+                            MessageBox.Show("Merch failed to update");
+                        }
+                        else
+                        {
+                            MessageBox.Show($"Item succesfully updated to MerchID: {merchIdBox.Text} Price: {priceBox.Text} Stock: {inStockBox.Text}");
+                        }
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Error merch failed to update");
+                    }
                 }
             }
+            priceBox.Text = "";
+            inStockBox.Text = "";
+            merchIdBox.Text = "";
         }
-
+        
         private void newMerchButton_Click(object sender, RoutedEventArgs e)
         {
             this.Visibility = Visibility.Collapsed;

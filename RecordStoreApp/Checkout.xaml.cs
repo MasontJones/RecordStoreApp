@@ -95,7 +95,6 @@ namespace RecordStoreApp
                             var cmd = new MySqlCommand(query, DBConnection.Connection);
                             cmd.ExecuteNonQuery();
                         }
-                        //string query2 = $"INSERT INTO Customer VALUES(null, '{firstName}', '{lastName}', {newPhone}, {newEmail});";
                         string query2 = $"INSERT INTO Customer VALUES(null, @firstName, @lastName, @newPhone, @newEmail);";
                         var cmd2 = new MySqlCommand(query2, DBConnection.Connection);
                         cmd2.Parameters.AddWithValue("@firstName", firstName);
